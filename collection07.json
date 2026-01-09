@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "40979985-7994-418d-9026-931578ee52ce",
+		"name": "07-01-2026",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "51277033",
+		"_collection_link": "https://ambilinikhil-5446564.postman.co/workspace/Ambili's-Workspace~e86eb505-e254-4902-830d-b5443bb5fb32/collection/51277033-40979985-7994-418d-9026-931578ee52ce?action=share&source=collection_link&creator=51277033"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "API Key",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Dataprovider",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify name is \" + pm.iterationData.get(\"username\"), function () {\r",
+							"    pm.expect(pm.response.json().name).to.eql(pm.iterationData.get(\"username\"));\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"{{username}}\",\r\n  \"email\": \"{{email}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "publicapi-nationalize",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Dogs",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "IPify",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "jokes",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "10randomjokes",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "randomjokes",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `",
+							"<style>",
+							"    .container {",
+							"        font-family: Arial, sans-serif;",
+							"        max-width: 600px;",
+							"        margin: 20px auto;",
+							"        padding: 20px;",
+							"        border: 1px solid #ddd;",
+							"        border-radius: 8px;",
+							"        background-color: #f9f9f9;",
+							"    }",
+							"    .status-badge {",
+							"        display: inline-block;",
+							"        padding: 8px 16px;",
+							"        border-radius: 20px;",
+							"        font-weight: bold;",
+							"        margin-bottom: 20px;",
+							"    }",
+							"    .status-success {",
+							"        background-color: #4CAF50;",
+							"        color: white;",
+							"    }",
+							"    .status-error {",
+							"        background-color: #f44336;",
+							"        color: white;",
+							"    }",
+							"    .dog-image {",
+							"        max-width: 100%;",
+							"        border-radius: 8px;",
+							"        box-shadow: 0 4px 8px rgba(0,0,0,0.2);",
+							"    }",
+							"    .image-url {",
+							"        word-break: break-all;",
+							"        background-color: #e8e8e8;",
+							"        padding: 10px;",
+							"        border-radius: 4px;",
+							"        font-size: 12px;",
+							"        margin-top: 15px;",
+							"    }",
+							"    h2 {",
+							"        color: #333;",
+							"        margin-top: 0;",
+							"    }",
+							"    .label {",
+							"        font-weight: bold;",
+							"        color: #555;",
+							"        margin-top: 15px;",
+							"    }",
+							"</style>",
+							"",
+							"<div class=\"container\">",
+							"    <h2>🐕 Random Dog Image</h2>",
+							"    ",
+							"    <div class=\"label\">Status:</div>",
+							"    <span class=\"status-badge {{statusClass}}\">{{status}}</span>",
+							"    ",
+							"    <div class=\"label\">Dog Image:</div>",
+							"    <img src=\"{{imageUrl}}\" alt=\"Random Dog\" class=\"dog-image\"/>",
+							"    ",
+							"    <div class=\"label\">Image URL:</div>",
+							"    <div class=\"image-url\">{{imageUrl}}</div>",
+							"</div>",
+							"`;",
+							"",
+							"function constructVisualizerPayload() {",
+							"    var response = pm.response.json();",
+							"    return {",
+							"        status: response.status || 'unknown',",
+							"        statusClass: response.status === 'success' ? 'status-success' : 'status-error',",
+							"        imageUrl: response.message || ''",
+							"    };",
+							"}",
+							"",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dog.ceo/api/breeds/image/random",
+					"protocol": "https",
+					"host": [
+						"dog",
+						"ceo"
+					],
+					"path": [
+						"api",
+						"breeds",
+						"image",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "words",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
